@@ -1,19 +1,24 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { Card, Col, Row } from "antd";
-import { useGetCryptosQuery } from "../services/cryptoApi";
-import { Link } from "react-router-dom";
 import millify from "millify";
+import { Link } from "react-router-dom";
+import { useGetCryptosQuery } from "../services/cryptoApi";
 
-const Cryptocurrencies = () => {
-  const { data, isFetching, error } = useGetCryptosQuery();
+const Cryptocurrencies = ({ simplified }) => {
+  const count = simplified ? 10 : 100;
+  const { data, isFetching, error } = useGetCryptosQuery(count);
   const cryptos = data?.data?.coins;
+
+  if (isFetching) return "Loading...";
+
+  if (error) return "Something went wrong!!!";
 
   console.log("DATA HERE :", cryptos);
 
   return (
     <>
       <Row className="cypto-card-container" gutter={[32, 32]}>
-        {cryptos.map((currency) => (
+        {cryptos?.map((currency) => (
           // console.log("NAMEEE: ", currency.rank)
           // console.log("NAMEEE: ", currency.name)
           <Col
