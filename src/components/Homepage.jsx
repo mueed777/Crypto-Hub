@@ -1,14 +1,14 @@
 import { Col, Row, Statistic, Typography } from "antd";
-import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
-import Cryptocurrencies from "./Cryptocurrencies";
 import { Link } from "react-router-dom";
+import { useGetCryptosQuery } from "../services/cryptoApi";
+import Cryptocurrencies from "./Cryptocurrencies";
 import News from "./News";
 
 const { Title } = Typography;
 
 const Homepage = () => {
-  const { data, isFetching, error } = useGetCryptosQuery();
+  const { data, isFetching, error } = useGetCryptosQuery(10);
 
   if (isFetching) return <p>Loading....</p>;
 
@@ -67,7 +67,7 @@ const Homepage = () => {
           <Link to="/cryptocurrencies">Show more</Link>
         </Title>
       </div>
-      <Cryptocurrencies></Cryptocurrencies>
+      <Cryptocurrencies simplified={true}></Cryptocurrencies>
 
       <div className="home-heading-container">
         <Title level={2} className="home-title">
