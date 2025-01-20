@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Card, Col, Input, Row } from "antd";
 import millify from "millify";
@@ -6,8 +5,8 @@ import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { useEffect, useState } from "react";
 
-const Cryptocurrencies = ({ simplified }) => {
-  const count = simplified ? 10 : 100;
+const Cryptocurrencies = ({ isSimplified }) => {
+  const count = isSimplified ? 10 : 50;
   const { data, isFetching, error } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
   const [search, setSearch] = useState("");
@@ -24,11 +23,11 @@ const Cryptocurrencies = ({ simplified }) => {
 
   if (error) return "Something went wrong!!!";
 
-  console.log("DATA HERE :", cryptos);
+  // console.log("DATA HERE :", cryptos);
 
   return (
     <>
-      {!simplified && (
+      {!isSimplified && (
         <div className="search-crypto">
           <Input
             placeholder="Search Cryptocurrency"

@@ -24,6 +24,7 @@ export default [
       "react-refresh": reactRefresh,
     },
     rules: {
+      "react/jsx-no-unused-vars": "off",
       "no-unused-vars": "off",
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
