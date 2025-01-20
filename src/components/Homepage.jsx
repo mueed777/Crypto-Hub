@@ -17,9 +17,9 @@ const Homepage = () => {
     return <p>Something went wrong. check sonsole for details!!!</p>;
   }
 
-  console.log("⚠️ API response: ", data);
+  // console.log("⚠️ API response: ", data);
   const globalStats = data?.data?.stats;
-  console.log("Global Stats : ", globalStats);
+  // console.log("Global Stats : ", globalStats);
 
   return (
     <>
@@ -67,7 +67,7 @@ const Homepage = () => {
           <Link to="/cryptocurrencies">Show more</Link>
         </Title>
       </div>
-      <Cryptocurrencies simplified={true}></Cryptocurrencies>
+      <Cryptocurrencies isSimplified={true}></Cryptocurrencies>
 
       <div className="home-heading-container">
         <Title level={2} className="home-title">
@@ -77,7 +77,7 @@ const Homepage = () => {
           <Link to="/news">Show more</Link>
         </Title>
       </div>
-      <News></News>
+      <News isSimplified={true}></News>
     </>
   );
 };
