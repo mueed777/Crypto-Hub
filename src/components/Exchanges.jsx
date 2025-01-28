@@ -1,5 +1,5 @@
 const Exchanges = () => {
-  return <div>Exchanges</div>;
+  return <div>Under development...</div>;
 };
 
 export default Exchanges;
