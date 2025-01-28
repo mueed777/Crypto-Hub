@@ -6,7 +6,7 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import { useEffect, useState } from "react";
 
 const Cryptocurrencies = ({ isSimplified }) => {
-  const count = isSimplified ? 10 : 50;
+  const count = isSimplified ? 10 : 500;
   const { data, isFetching, error } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
   const [search, setSearch] = useState("");
@@ -23,7 +23,11 @@ const Cryptocurrencies = ({ isSimplified }) => {
 
   if (error) return "Something went wrong!!!";
 
-  // console.log("DATA HERE :", cryptos);
+  // console.log("🤑🤑🤑🤑🤑🤑🤑Cryptos:", data);
+  // data?.data?.coins.map((coin) => {
+  //   console.log(coin.name);
+  // });
+  // console.log("🤑🤑🤑🤑🤑🤑🤑Cryptos:", cryptos.name);
 
   return (
     <>
